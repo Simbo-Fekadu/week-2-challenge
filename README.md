@@ -68,5 +68,36 @@ week-2-challenge/
 
 ## 🚦 Next Steps
 
-- **Task 2:** Sentiment analysis and feature extraction.
+## 🧠 Task 2: Sentiment & Thematic Analysis
+
+### 🎯 **Objective**
+
+Quantify user sentiment and uncover key themes in reviews for CBE, BOA, and Dashen Bank.
+
+### 🛠️ **Methodology**
+
+- **Sentiment Analysis:**
+
+  - Applied [TextBlob](https://textblob.readthedocs.io/) to classify reviews as positive, negative, or neutral.
+  - Calculated sentiment polarity scores for each review.
+
+- **Thematic Analysis:**
+
+  - Initiated keyword and topic extraction using [spaCy](https://spacy.io/).
+  - Currently resolving spaCy model installation issues to finalize theme identification.
+
+- **Output:**
+  - Results saved to [`analyzed_reviews.csv`](./analyzed_reviews.csv), including sentiment labels and scores.
+
+### 🧰 **Tools Used**
+
+- Python
+- TextBlob
+- spaCy (in progress)
+
+### 📈 **Status**
+
+- **Sentiment analysis:** Complete on all collected reviews.
+- **Thematic analysis:** In progress—final results pending spaCy setup.
+
 - **Task 3:** Visualization and reporting.
