@@ -193,10 +193,10 @@ Analyze bank review data to extract insights and create visualizations.
 ### 📈 **Outputs**
 
 - **Visualizations:**
-  - ![Average Rating by Bank](./images/avg_rating_by_bank.png)
-  - ![Sentiment Distribution](./images/sentiment_distribution.png)
-  - ![Top Themes](./images/top_themes.png)
-  - ![Reviews by Month](./images/reviews_by_month.png)
+  - ![Average Rating by Bank](avg_rating_by_bank.png)
+  - ![Sentiment Distribution](sentiment_distribution.png)
+  - ![Top Themes](top_themes.png)
+  - ![Reviews by Month](reviews_by_month.png)
 - **Report:** See [`insights_report.md`](./insights_report.md) for summarized findings.
 
 ---
