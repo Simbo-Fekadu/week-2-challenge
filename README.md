@@ -100,4 +100,63 @@ Quantify user sentiment and uncover key themes in reviews for CBE, BOA, and Dash
 - **Sentiment analysis:** Complete on all collected reviews.
 - **Thematic analysis:** In progress—final results pending spaCy setup.
 
-- **Task 3:** Visualization and reporting.
+## 🗄️ Task 3: Store Cleaned Data in Oracle
+
+### 🎯 **Objective**
+
+Design and implement a robust relational database in Oracle to securely store and manage the processed review data for further querying and analysis.
+
+---
+
+### 🛠️ **Methodology**
+
+1. **Database Setup**
+
+- Installed **Oracle Database Express Edition (XE)** for a lightweight, local RDBMS environment.
+- Configured environment variables by adding the Oracle bin directory (`C:\app\Simbo\product\21c\dbhomeXE\bin`) to the system `PATH` for seamless command-line access.
+
+2. **Schema Design**
+
+- Created a normalized schema with two main tables:
+  - **`banks`**: Stores unique bank identifiers and names.
+  - **`reviews`**: Stores all review details, including foreign keys referencing the `banks` table.
+- Ensured referential integrity and optimized for analytical queries.
+
+3. **Table Creation & Initialization**
+
+- Authored [`setup_database.sql`](./setup_database.sql) to:
+  - Create the required tables with appropriate data types and constraints.
+  - Insert initial bank records into the `banks` table.
+
+4. **Data Ingestion**
+
+- Developed [`insert_reviews.py`](./insert_reviews.py) to:
+  - Read the cleaned and analyzed data from [`analyzed_reviews.csv`](./analyzed_reviews.csv).
+  - Insert review records into the `reviews` table using the [oracledb](https://python-oracledb.readthedocs.io/en/latest/) Python package.
+  - Handle data type conversions and ensure transactional integrity.
+
+5. **Backup & Export**
+
+- Exported the populated database as a SQL dump file: [`bank_reviews_dump.dmp`](./bank_reviews_dump.dmp) for backup and portability.
+
+---
+
+### 🧰 **Tools Used**
+
+- **Python** (for scripting and data loading)
+- **oracledb** (Python-Oracle connectivity)
+- **Oracle Database XE** (database engine)
+- **SQL** (schema and data manipulation)
+
+---
+
+### 📈 **Status**
+
+- **Database schema:** Designed and deployed.
+- **Data ingestion:** Successfully loaded all analyzed reviews into Oracle.
+- **Backup:** SQL dump exported for safekeeping.
+- **Total Reviews Stored:** **1,250** entries (matching the processed dataset).
+
+---
+
+**Next:** The database is now ready for advanced querying, reporting, and integration with BI tools in future tasks!
