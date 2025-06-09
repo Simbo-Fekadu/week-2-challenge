@@ -26,20 +26,21 @@ Scrape and preprocess Google Play Store reviews to build a clean dataset for ana
 
 1. **Data Collection**
 
-   - Utilized the [`google-play-scraper`](https://github.com/facundoolano/google-play-scraper) Python library.
-   - Targeted 400+ reviews per bank, aiming for a total of **1,200+ reviews**.
-   - Extracted the following fields:
-     - **Review Text**
-     - **Rating** (1-5 stars)
-     - **Date**
-     - **Bank Name**
-     - **Source** (Google Play)
+- Utilized the [`google-play-scraper`](https://github.com/facundoolano/google-play-scraper) Python library.
+- Targeted 400+ reviews per bank, aiming for a total of **1,200+ reviews**.
+- Extracted the following fields:
+  - **Review Text**
+  - **Rating** (1-5 stars)
+  - **Date**
+  - **Bank Name**
+  - **Source** (Google Play)
 
 2. **Preprocessing Steps**
-   - **Removed duplicates** to ensure unique feedback.
-   - **Dropped rows** with missing review text for data quality.
-   - **Normalized dates** to `YYYY-MM-DD` format for consistency.
-   - **Saved** the cleaned dataset as [`bank_reviews.csv`](./bank_reviews.csv).
+
+- **Removed duplicates** to ensure unique feedback.
+- **Dropped rows** with missing review text for data quality.
+- **Normalized dates** to `YYYY-MM-DD` format for consistency.
+- **Saved** the cleaned dataset as [`bank_reviews.csv`](./bank_reviews.csv).
 
 ### 🧰 **Tools Used**
 
@@ -61,7 +62,20 @@ week-2-challenge/
 ├── README.md
 ├── bank_reviews.csv
 ├── data_collection.py
-└── requirements.txt
+├── requirements.txt
+├── analyzed_reviews.csv
+├── setup_database.sql
+├── insert_reviews.py
+├── bank_reviews_dump.dmp
+├── query_insights.sql
+├── visualize_insights.py
+├── generate_insights.py
+├── insights_report.md
+├── images/
+│   ├── avg_rating_by_bank.png
+│   ├── sentiment_distribution.png
+│   ├── top_themes.png
+│   └── reviews_by_month.png
 ```
 
 ---
@@ -100,13 +114,13 @@ Quantify user sentiment and uncover key themes in reviews for CBE, BOA, and Dash
 - **Sentiment analysis:** Complete on all collected reviews.
 - **Thematic analysis:** In progress—final results pending spaCy setup.
 
+---
+
 ## 🗄️ Task 3: Store Cleaned Data in Oracle
 
 ### 🎯 **Objective**
 
 Design and implement a robust relational database in Oracle to securely store and manage the processed review data for further querying and analysis.
-
----
 
 ### 🛠️ **Methodology**
 
@@ -139,16 +153,12 @@ Design and implement a robust relational database in Oracle to securely store an
 
 - Exported the populated database as a SQL dump file: [`bank_reviews_dump.dmp`](./bank_reviews_dump.dmp) for backup and portability.
 
----
-
 ### 🧰 **Tools Used**
 
 - **Python** (for scripting and data loading)
 - **oracledb** (Python-Oracle connectivity)
 - **Oracle Database XE** (database engine)
 - **SQL** (schema and data manipulation)
-
----
 
 ### 📈 **Status**
 
@@ -159,4 +169,34 @@ Design and implement a robust relational database in Oracle to securely store an
 
 ---
 
-**Next:** The database is now ready for advanced querying, reporting, and integration with BI tools in future tasks!
+## 📊 Task 4: Generate Insights and Visualizations
+
+### 🎯 **Objective**
+
+Analyze bank review data to extract insights and create visualizations.
+
+### 🛠️ **Methodology**
+
+- Queried Oracle database (or used `analyzed_reviews.csv`) for average ratings, sentiment distribution, top themes, and review trends.
+- Used `query_insights.sql` for SQL queries.
+- Generated visualizations (bar, pie, line charts) with `visualize_insights.py`.
+- Summarized findings in `insights_report.md` using `generate_insights.py`.
+
+### 🧰 **Tools Used**
+
+- Python
+- pandas
+- matplotlib
+- seaborn
+- Oracle XE
+
+### 📈 **Outputs**
+
+- **Visualizations:**
+  - ![Average Rating by Bank](./images/avg_rating_by_bank.png)
+  - ![Sentiment Distribution](./images/sentiment_distribution.png)
+  - ![Top Themes](./images/top_themes.png)
+  - ![Reviews by Month](./images/reviews_by_month.png)
+- **Report:** See [`insights_report.md`](./insights_report.md) for summarized findings.
+
+---
